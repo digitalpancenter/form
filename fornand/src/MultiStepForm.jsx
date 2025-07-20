@@ -44,6 +44,7 @@ const MultiStepForm = () => {
       alert("Form submitted successfully!");
       navigate("/invoice");
     } catch (error) {
+      console.error("Error submitting form:", error);
       alert("Submission failed.");
     }
   };
@@ -63,7 +64,6 @@ const MultiStepForm = () => {
             All Users
           </button>
         )}
-       
       </div>
 
       {step === 1 && (
