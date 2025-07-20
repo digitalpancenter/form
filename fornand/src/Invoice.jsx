@@ -9,7 +9,7 @@ const Invoice = () => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/forms/latest");
+        const res = await axios.get("https://form-qvht.onrender.com/api/forms/latest");
         setFormData(res.data);
       } catch (error) {
         console.error("Error fetching invoice data:", error);
