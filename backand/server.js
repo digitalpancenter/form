@@ -6,15 +6,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB (replace 'yourdbname' with your actual DB name)
-mongoose.connect('mongodb://localhost:27017/yourdbname', {
+// Direct MongoDB Atlas connection
+mongoose.connect('mongodb+srv://radigitalindia:h0rn7AsBvTnZgsgV@radigitalindia.pvxmh92.mongodb.net/?retryWrites=true&w=majority&appName=radigitalindia', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
+.then(() => console.log('Connected to MongoDB Atlas'))
+.catch((err) => console.error('MongoDB connection error:', err));
 
 // Define the Mongoose schema and model
 const FormSchema = new mongoose.Schema({
- fullName: String,
+  fullName: String,
   userId: String,
   mobile: String,
   email: String,
@@ -24,7 +26,7 @@ const FormSchema = new mongoose.Schema({
   digitalIndiaText: String,
   address: String,
   phone: String,
-  companyEmail: String,     // NEW field
+  companyEmail: String,
   authorizedSignature: String
 });
 
@@ -51,7 +53,6 @@ app.put('/api/forms/:id', async (req, res) => {
     res.status(500).send({ error: 'Failed to update user' });
   }
 });
-
 
 // DELETE a user by ID
 app.delete('/api/forms/:id', async (req, res) => {
