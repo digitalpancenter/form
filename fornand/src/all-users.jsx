@@ -12,7 +12,7 @@ const AllUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/forms");
+      const res = await axios.get("https://form-qvht.onrender.com/api/forms");
       setUsers(res.data);
     } catch (err) {
       console.error("Failed to fetch users", err);
@@ -50,7 +50,7 @@ const AllUsers = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/forms/${editUserId}`, editForm);
+      await axios.put(`https://form-qvht.onrender.com/api/forms/${editUserId}`, editForm);
       alert("User updated successfully");
       setEditUserId(null);
       fetchUsers();
@@ -63,7 +63,7 @@ const AllUsers = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/forms/${id}`);
+      await axios.delete(`https://form-qvht.onrender.com/api/forms/${id}`);
       alert("User deleted successfully");
       fetchUsers();
     } catch (err) {
@@ -74,7 +74,7 @@ const AllUsers = () => {
 
   const toggleEnable = async (user) => {
     try {
-      await axios.put(`http://localhost:5000/api/forms/${user._id}`, {
+      await axios.put(`https://form-qvht.onrender.com/api/forms/${user._id}`, {
         ...user,
         isEnabled: !user.isEnabled,
       });
