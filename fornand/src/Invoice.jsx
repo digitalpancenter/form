@@ -151,12 +151,12 @@ const Invoice = () => {
               <td className="border px-2 py-1">₹{serviceCharge.toFixed(2)}</td>
             </tr>
             <tr className="bg-blue-50">
-              <td className="border px-2 py-1">1</td>
+              <td className="border px-2 py-1">2</td>
               <td className="border px-2 py-1">GST (Fixed)</td>
               <td className="border px-2 py-1">₹{gst.toFixed(2)}</td>
             </tr>
             <tr className="bg-blue-100 font-bold">
-              <td className="border px-2 py-1">1</td>
+              <td className="border px-2 py-1">3</td>
               <td className="border px-2 py-1">Final Balance</td>
               <td className="border px-2 py-1">₹{finalBalance.toFixed(2)}</td>
             </tr>
